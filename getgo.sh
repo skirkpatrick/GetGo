@@ -28,7 +28,7 @@ echo "Downloading $BINARY from $URL"
 curl -O -L $URL
 
 echo "Installing Go into $GOROOT"
-sudo tar -C $INSTALL xzf $BINARY
+sudo tar -C $INSTALL -xzf $BINARY
 
 echo "Creating workspace at $GOPATH"
 for dir in src pkg bin
