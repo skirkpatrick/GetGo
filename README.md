@@ -11,7 +11,9 @@ Just run the script and it'll do the rest for you. It's magical that way.
 
 If you're exceptionally lazy (like me) and don't mind the default settings, you can
 
-`curl https://raw.github.com/skirkpatrick/GetGo/master/getgo.sh | sh`
+```sh
+$ wget https://raw.github.com/skirkpatrick/GetGo/master/getgo.sh && source getgo.sh && rm getgo.sh
+```
 
 It'll ask you for your `sudo` password at some point. This is because Go itself is installed into `/usr/local`. You can change this if you know what you're doing by modifying the `INSTALL` variable.
 

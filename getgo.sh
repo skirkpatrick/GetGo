@@ -45,9 +45,11 @@ fi
 echo "export GOROOT=$GOROOT" >> $PROFILE
 echo "export GOPATH=$GOPATH" >> $PROFILE
 echo 'export PATH=$PATH:$GOROOT/bin:$GOPATH/bin' >> $PROFILE
+export GOROOT
+export GOPATH
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 echo "Cleaning up"
 rm $BINARY
 
 echo "Installation complete"
-echo "Be sure to run: source $PROFILE"
