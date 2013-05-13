@@ -25,7 +25,14 @@ URL=https://go.googlecode.com/files/$BINARY
 
 
 echo "Downloading $BINARY from $URL"
-curl -O -L $URL
+if [ "`which wget`" != "" ]; then
+    wget $URL
+elif [ "`which curl`" != "" ]; then
+    curl -O -L $URL
+else
+    echo "Either wget or curl are required to download Go!"
+    exit 1
+fi
 
 echo "Installing Go into $GOROOT"
 sudo tar -C $INSTALL -xzf $BINARY
