@@ -1,37 +1,24 @@
 #!/usr/bin/env sh
 
-set -e
+if [ "`which go`" != "" ]; then
+  echo "WARNING: This script is going to uninstall Go."
 
-echo "WARNING: This script is going to uninstall Go."
+  answer=""
+  while [ "$answer" != "Y" -a "$answer" != "N" ]; do
+    echo "Do you want to continue? (Y/N)"
+    read answer
+    answer=`echo $answer | tr yn YN`
+  done
 
-
-PATH=/usr/local   # Only change this if you know what you're doing.
-DIR=go
-GOROOT=$INSTALL/go
-GOPATH=~/gocode
-
-answer=""
-while [ "$answer" != "Y" -a "$answer" != "N" ]; do
-  echo "Do you want to continue? (Y/N)"
-  read answer
-  answer=`echo $answer | tr yn YN`
-done
-
-if [ "$answer" == "Y" ]; then
-  if [ -f ~/.bash_profile ]; then
-    PROFILE=~/.bash_profile
+  if [ "$answer" == "Y" ]; then
+    echo "You might need to enter your password"
+    echo "Uninstalling Go from $GOROOT"
+    sudo rm -rf $GOROOT
+    echo "Go was succesfully uninstalled"
   else
-    PROFILE=~/.profile
+    echo "Aborting..."
+    exit 1
   fi
-  echo "NOTE: Remove the lines listed bellow from $PROFILE"
-  echo "export GOROOT=$GOROOT"=
-  echo "export GOPATH=$GOPATH"
-  echo "export PATH=$PATH:$GOROOT/bin:$GOPATH/bin"
-
-  echo "Uninstalling Go from $GOROOT"
-  rm -rf $PATH/$DIR
-  echo "Go was succesfully uninstalled"
 else
-  echo "Aborting..."
-  exit 1
+  echo "Error: Go isn't installed on your machine"
 fi
