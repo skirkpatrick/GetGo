@@ -18,8 +18,10 @@ fi
 
 INSTALL=/usr/local   # Only change this if you know what you're doing.
 GOROOT=$INSTALL/go
-GOPATH=~/gocode      # This is where your workspace will be. Change it!
-VERSION=1.0.3
+if ! [ $GOPATH ]; then
+	GOPATH=~/gocode      # This is where your workspace will be. Change it!
+fi
+VERSION=1.1.1
 BINARY=go$VERSION.$DISTRO-$ARCH.tar.gz
 URL=https://go.googlecode.com/files/$BINARY
 
