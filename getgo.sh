@@ -46,6 +46,8 @@ done
 echo "Setting environment variables"
 if [ -f ~/.bash_profile ]; then
     PROFILE=~/.bash_profile
+elif [ -f ~/.bashrc ]; then
+    PROFILE=~/.bashrc
 else
     PROFILE=~/.profile
 fi
