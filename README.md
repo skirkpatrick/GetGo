@@ -1,6 +1,10 @@
 #GetGo
 
-A simple, poorly written, hacked-together script to install Google Go in one command!
+A simple script to quickly install Google Go in one command!
+
+##Disclaimer
+
+I haven't update this script in quite a while, so even if it still works, the version of Go it installs will be significantly out of date!
 
 ##Usage
 
@@ -9,13 +13,13 @@ Customize the `GOPATH` variable for wherever you want your workspace to be. This
 
 Just run the script and it'll do the rest for you. It's magical that way.
 
-If you're exceptionally lazy (like me) and don't mind the default settings, you can
+If you don't mind the default settings, just run:
 
 ```sh
 $ wget https://raw.github.com/skirkpatrick/GetGo/master/getgo.sh && source getgo.sh && rm getgo.sh
 ```
 
-or, if you don't have wget (likely on a mac), just
+or, if you don't have wget (likely on a mac), use:
 
 ```sh
 $ curl https://raw.github.com/skirkpatrick/GetGo/master/getgo.sh >getgo.sh && source getgo.sh && rm getgo.sh
@@ -25,4 +29,4 @@ It'll ask you for your `sudo` password at some point. This is because Go itself 
 
 ##Why?
 
-Laziness. I got tired of going through the same steps everytime I installed Go on a machine.
+Laziness. I got tired of going through the same steps every time I installed Go on a machine.
